@@ -1,0 +1,39 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+  become: yes
+
+- name: Install OpenJDK 17
+  ansible.builtin.apt:
+    name: openjdk-17-jdk
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Add Jenkins GPG key
+  ansible.builtin.get_url:
+    url: https://pkg.jenkins.io/debian/jenkins.io-2023.key
+    dest: /usr/share/keyrings/jenkins-keyring.gpg
+    mode: '0644'
+  become: yes
+
+- name: Add Jenkins repository
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/jenkins-keyring.gpg] https://pkg.jenkins.io/debian binary/"
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Install Jenkins
+  ansible.builtin.apt:
+    name: jenkins
+    state: present
+  become: yes
+
+- name: Ensure Jenkins is started and enabled
+  ansible.builtin.systemd:
+    name: jenkins
+    state: started
+    enabled: yes
+  become: yes

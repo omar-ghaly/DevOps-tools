@@ -1,0 +1,9 @@
+---
+- name: Configure Docker, Kubernetes CLI, and Jenkins
+  hosts: workers
+  become: yes
+
+  roles:
+    - docker
+    - kubectl
+    - jenkins
