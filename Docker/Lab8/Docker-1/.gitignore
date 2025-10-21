@@ -1,0 +1,13 @@
+# Maven
+target/
+*.log
+*.class
+
+# IDEs
+.idea/
+*.iml
+*.classpath
+*.project
+
+# Docker
+*.jar
