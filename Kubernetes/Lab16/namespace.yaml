@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2025-10-27T09:13:00Z"
+  labels:
+    kubernetes.io/metadata.name: ivolve
+  name: ivolve
+  resourceVersion: "2877"
+  uid: 75f22dca-5cfb-4449-bf0b-93ce3b73d967
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active
