@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: jenkins-app
-        image: omarghalyy/jenkins_app:v1.0   # Jenkins هيحدث السطر ده تلقائيًا
+        image: omarghalyy/jenkins_app:v8
         ports:
         - containerPort: 8080
 ---
